@@ -23,3 +23,34 @@ DecisionTreeNode* createNode(const char* question)
   } 
   return newNode;
 }
+
+void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    
+    if(answer == 'y')
+    {
+        if(root->yes == NULL)
+        {
+            root->yes == createNode(question);
+        }
+        else
+        {
+            inser(root->yes, question, answer);
+        }
+    }
+    else if(root->no == NULL)
+    {
+        if(root->no == NULL)
+        {
+            root->no == createNode(question);
+        }
+        else
+        {
+            inser(root->no, question, answer);
+        }
+    }
+}
