@@ -80,3 +80,19 @@ void playGame(DecisionTreeNode* root)
         playGame(root);
     }
 }
+
+void freeTree(DecisionTreeNode* root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+
+    freeTree(root->yes);
+    freeTree(root->no);
+
+    free(root->question);
+    root->question = NULL;
+    
+    free(root);
+}
