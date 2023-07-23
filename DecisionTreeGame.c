@@ -35,7 +35,7 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
     {
         if(root->yes == NULL)
         {
-            root->yes == createNode(question);
+            root->yes = createNode(question);
         }
         else
         {
@@ -46,7 +46,7 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
     {
         if(root->no == NULL)
         {
-            root->no == createNode(question);
+            root->no = createNode(question);
         }
         else
         {
