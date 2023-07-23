@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 typedef struct DecisionTreeNode
 {
     char* question; //Pointer auf die Frage im jeweiligen Knoten
