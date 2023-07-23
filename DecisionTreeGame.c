@@ -54,3 +54,29 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
         }
     }
 }
+
+void playGame(DecisionTreeNode* root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+
+    char response;
+    printf("%s (y/n): ", root->question);
+    scanf("%c", &response);
+
+    if(response == 'y')
+    {
+        playGame(root->yes);
+    }
+    else if(response == 'n')
+    {
+        playGame(root->no);
+    }
+    else
+    {
+        printf("Invalid answer. Please enter 'y' for yes and 'n' for no.");
+        playGame(root);
+    }
+}
