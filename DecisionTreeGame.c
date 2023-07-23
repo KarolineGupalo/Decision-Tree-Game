@@ -11,7 +11,7 @@ DecisionTreeNode* createNode(const char* question)
       newNode->question = (char*)malloc(strlen(question) + 1);
       if(newNode->question)
       {
-          strcpy(newNode->question, question)
+          strcpy(newNode->question, question);
           newNode->yes = NULL;
           newNode->no = NULL;
       }
@@ -39,7 +39,7 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
         }
         else
         {
-            inser(root->yes, question, answer);
+            insertQuestion(root->yes, question, answer);
         }
     }
     else if(root->no == NULL)
@@ -50,7 +50,7 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
         }
         else
         {
-            inser(root->no, question, answer);
+            insertQuestion(root->no, question, answer);
         }
     }
 }
@@ -64,6 +64,14 @@ void playGame(DecisionTreeNode* root)
 
     char response;
     printf("%s (y/n): ", root->question);
+
+    if(root->yes == NULL && root->no == NULL)
+    {
+        printf("You've reached the end of the story. Until next time!\n");
+        return;
+    }
+
+    printf("Enter 'y' for yes and 'n' for no: ");
     scanf("%c", &response);
 
     if(response == 'y')
@@ -93,6 +101,6 @@ void freeTree(DecisionTreeNode* root)
 
     free(root->question);
     root->question = NULL;
-    
+
     free(root);
 }
