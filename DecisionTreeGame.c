@@ -42,7 +42,7 @@ void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
             insertQuestion(root->yes, question, answer);
         }
     }
-    else if(root->no == NULL)
+    else if(answer == 'n')
     {
         if(root->no == NULL)
         {
@@ -71,8 +71,8 @@ void playGame(DecisionTreeNode* root)
         return;
     }
 
-    printf("Enter 'y' for yes and 'n' for no: ");
-    scanf("%c", &response);
+    printf("Enter 'y' for yes and 'n' for no: \n");
+    scanf(" %c", &response);
 
     if(response == 'y')
     {
@@ -84,7 +84,7 @@ void playGame(DecisionTreeNode* root)
     }
     else
     {
-        printf("Invalid answer. Please enter 'y' for yes and 'n' for no.");
+        printf("Invalid answer. Please enter 'y' for yes and 'n' for no. You typed %c", response);
         playGame(root);
     }
 }
