@@ -24,36 +24,37 @@ DecisionTreeNode* createNode(const char* question)
   return newNode;
 }
 
-void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
-{
-    if(root == NULL)
-    {
-        return;
-    }
-    
-    if(answer == 'y')
-    {
-        if(root->yes == NULL)
-        {
-            root->yes = createNode(question);
-        }
-        else
-        {
-            insertQuestion(root->yes, question, answer);
-        }
-    }
-    else if(answer == 'n')
-    {
-        if(root->no == NULL)
-        {
-            root->no = createNode(question);
-        }
-        else
-        {
-            insertQuestion(root->no, question, answer);
-        }
-    }
-}
+//void insertQuestion(DecisionTreeNode* root, const char* question, char answer)
+//{
+//    if(root == NULL)
+//    {
+//        return;
+//    }
+//
+//    if(answer == 'y')
+//    {
+//        if(root->yes == NULL)
+//        {
+//            root->yes = createNode(question);
+//        }
+//        else
+//        {
+//            insertQuestion(root->yes, question, answer);
+//        }
+//    }
+//    else if(answer == 'n')
+//    {
+//        if(root->no == NULL)
+//        {
+//            root->no = createNode(question);
+//        }
+//        else
+//        {
+//            insertQuestion(root->no, question, answer);
+//        }
+//    }
+//}
+//Diese Funktion wurde inaktiv gesetzt, weil sie für die Main-Funktion nicht mehr notwendig ist.
 
 void playGame(DecisionTreeNode* root)
 {
